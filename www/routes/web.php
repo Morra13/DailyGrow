@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PublicController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',         [PublicController::class, 'analytics']  )->name(PublicController::ROUTE_ANALYTICS);
+Route::get('/clients',  [PublicController::class, 'clients']    )->name(PublicController::ROUTE_CLIENTS);
+Route::get('/mailing',  [PublicController::class, 'mailing']    )->name(PublicController::ROUTE_MAILING);
+
+Route::get('/auth',     [RegisterController::class, 'auth']  )->name(RegisterController::ROUTE_AUTH);
+Route::get('/register', [RegisterController::class, 'register'] )->name(RegisterController::ROUTE_REGISTER);
