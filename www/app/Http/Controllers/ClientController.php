@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -22,7 +23,14 @@ class ClientController extends Controller
      */
     public function clients()
     {
-        return view('clients.clients');
+        $obClients = (new Client())
+            ->get()
+        ;
+
+        return view('clients.clients', [
+                'clients' => $obClients
+            ]
+        );
     }
 
     /**
