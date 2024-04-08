@@ -10,9 +10,6 @@ class PublicController extends Controller
     const ROUTE_ANALYTICS = 'analytics';
 
     /** @var string  */
-    const ROUTE_CLIENTS = 'clients';
-
-    /** @var string  */
     const ROUTE_MAILING = 'mailing';
 
     /**
@@ -23,16 +20,6 @@ class PublicController extends Controller
     public function analytics()
     {
         return view('analytics.analytics');
-    }
-
-    /**
-     * Clients
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
-     */
-    public function clients()
-    {
-        return view('clients.clients');
     }
 
     /**

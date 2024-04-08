@@ -11,7 +11,7 @@
                 <a href="#" class="clients__link">Список клиентов</a>
                 <a href="#" class="clients__link">Покупки</a>
             </div>
-            <button class="clients__button flex">Добавить</button>
+            <a href="{{ route(\App\Http\Controllers\ClientController::ROUTE_ADD_CLIENTS) }}" class="clients__button flex">Добавить</a>
         </div>
         <div class="search">
             <label for="search"></label>

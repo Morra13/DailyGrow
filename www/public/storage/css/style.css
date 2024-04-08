@@ -523,6 +523,10 @@ a {
     padding-top: 0;
 }
 
+.input__client {
+    margin-bottom: 10px;
+}
+
 /*Mailing*/
 .mailing {
     padding-left: 35px;

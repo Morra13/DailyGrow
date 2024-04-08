@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\Auth\RegisterController;
 
 /*
@@ -16,7 +17,9 @@ use App\Http\Controllers\Auth\RegisterController;
 */
 
 Route::get('/',         [PublicController::class, 'analytics']  )->name(PublicController::ROUTE_ANALYTICS);
-Route::get('/clients',  [PublicController::class, 'clients']    )->name(PublicController::ROUTE_CLIENTS);
+Route::get('/clients',      [ClientController::class, 'clients']    )->name(ClientController::ROUTE_CLIENTS);
+Route::get('/addClients',   [ClientController::class, 'addClients'] )->name(ClientController::ROUTE_ADD_CLIENTS);
+Route::get('/addClientsXlsCvs',   [ClientController::class, 'addClientsXlsCvs'] )->name(ClientController::ROUTE_ADD_CLIENTS_XLS_CVS);
 Route::get('/mailing',  [PublicController::class, 'mailing']    )->name(PublicController::ROUTE_MAILING);
 
 Route::get('/auth',     [RegisterController::class, 'auth']  )->name(RegisterController::ROUTE_AUTH);

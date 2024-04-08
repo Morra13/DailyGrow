@@ -121,6 +121,12 @@
       <path value="$PROJECT_DIR$/www/vendor/opis/closure" />
       <path value="$PROJECT_DIR$/www/vendor/fruitcake/laravel-cors" />
       <path value="$PROJECT_DIR$/www/vendor/composer" />
+      <path value="$PROJECT_DIR$/www/vendor/maatwebsite/excel" />
+      <path value="$PROJECT_DIR$/www/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/www/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/www/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/www/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/www/vendor/markbaker/complex" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

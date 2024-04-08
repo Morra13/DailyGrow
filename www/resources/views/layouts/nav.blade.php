@@ -29,7 +29,7 @@
                 </a>
             </li>
             <li class="nav__item">
-                <a href="{{ route(\App\Http\Controllers\PublicController::ROUTE_CLIENTS) }}" class="nav__link">
+                <a href="{{ route(\App\Http\Controllers\ClientController::ROUTE_CLIENTS) }}" class="nav__link">
                     Клиенты
                 </a>
             </li>
