@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => __('Регистрация')])
 
 @section('content')
-    <form class="register" method="post" autocomplete="off" enctype="multipart/form-data" action="{{ route(\App\Http\Controllers\Api\Auth\RegisterControllerApi::ROUTE_REGISTER) }}">
+    <form class="register" method="POST" autocomplete="off" enctype="multipart/form-data" action="{{ route(\App\Http\Controllers\Api\Auth\RegisterController::ROUTE_REGISTER) }}">
         @method('post')
         @csrf
         <h2 class="register__title">
@@ -31,6 +31,5 @@
                 Авторизация
             </a>
         </div>
-
     </form>
 @endsection
