@@ -1,7 +1,7 @@
 <nav class="nav">
     <div class="nav__top">
         <div class="logo">
-            <a href="{{ route(\App\Http\Controllers\PublicController::ROUTE_ANALYTICS) }}" class="logo__link">
+            <a href="{{ route(\App\Http\Controllers\AnalyticsController::ROUTE_ANALYTICS) }}" class="logo__link">
                 <img class="logo__img" src="{{asset('storage')}}/img/logo.png" alt="Logo Daily Grow">
             </a>
         </div>
@@ -23,8 +23,7 @@
         </button>
         <ul class="accordion__items nav__list list-reset flex">
             <li class="nav__item">
-
-                <a href="{{ route(\App\Http\Controllers\PublicController::ROUTE_ANALYTICS) }}" class="nav__link">
+                <a href="{{ route(\App\Http\Controllers\AnalyticsController::ROUTE_ANALYTICS) }}" class="nav__link">
                     Аналитика
                 </a>
             </li>

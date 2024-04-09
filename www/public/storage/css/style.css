@@ -389,6 +389,10 @@ a {
     border-radius: var(--border-radius-10);
 }
 
+.table__list_red {
+    background-color: var(--color-red);
+}
+
 .list__status {
     font-size: 10px;
     line-height: 20px;

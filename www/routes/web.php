@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PublicController;
+use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\MailingController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -17,7 +17,7 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
-Route::get('/',                 [PublicController::class, 'analytics']          )->name(PublicController::ROUTE_ANALYTICS);
+Route::get('/',                 [AnalyticsController::class, 'analytics']       )->name(AnalyticsController::ROUTE_ANALYTICS);
 Route::get('/clients',          [ClientController::class, 'clients']            )->name(ClientController::ROUTE_CLIENTS);
 Route::get('/addClients',       [ClientController::class, 'addClients']         )->name(ClientController::ROUTE_ADD_CLIENTS);
 Route::get('/addClientsXlsCvs', [ClientController::class, 'addClientsXlsCvs']   )->name(ClientController::ROUTE_ADD_CLIENTS_XLS_CVS);
