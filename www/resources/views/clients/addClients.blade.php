@@ -1,9 +1,9 @@
-@extends('layouts.app', ['title' => __('Добавить клиентов')])
+@extends('layouts.app', ['title' => __('Клиенты')])
 
 @section('content')
     <div class="clients">
         <h2 class="clients__title">
-            Добавить Клиентов
+            Добавить клиента
         </h2>
         <form class="mailing__form flex" method="POST" autocomplete="off" enctype="multipart/form-data" action="{{ route(\App\Http\Controllers\Api\ClientController::ROUTE_ADD_CLIENT) }}">
             @method('post')
