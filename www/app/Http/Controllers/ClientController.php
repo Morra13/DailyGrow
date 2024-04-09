@@ -23,12 +23,8 @@ class ClientController extends Controller
      */
     public function clients()
     {
-        $obClients = (new Client())
-            ->get()
-        ;
-
         return view('clients.clients', [
-                'clients' => $obClients
+                'clients' => (new Client())->all(),
             ]
         );
     }

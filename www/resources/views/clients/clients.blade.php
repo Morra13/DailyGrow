@@ -18,8 +18,7 @@
             <input type="text" id="search" class="input-reset search__input" placeholder="Поиск и фильтр">
             <img class="search__img" src="{{asset('storage')}}/img/search.png" alt="search">
         </div>
-        <span class="clients__clients">Клиентов: 1897</span>
-
+        <span class="clients__clients">Клиентов: {{ $clients->count() }}</span>
         <table class="table">
             <tr>
                 <th class="clients__table clients__table_title">
@@ -50,7 +49,6 @@
                     ]
                 )
             @endforeach
-
         </table>
     </div>
 @endsection
