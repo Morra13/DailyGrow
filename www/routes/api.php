@@ -26,4 +26,5 @@ Route::post('/register',                [RegisterController::class, 'register'] 
 Route::post('/addClient',               [ClientController::class, 'addClient']              )->name(ClientController::ROUTE_ADD_CLIENT);
 Route::post('/addClientXlsCvs',         [ClientController::class, 'addClientXlsCvs']        )->name(ClientController::ROUTE_ADD_CLIENT_XLS_CVS);
 Route::post('/addMailing',              [MailingController::class, 'addMailing']            )->name(MailingController::ROUTE_ADD_MAILING);
+Route::post('/addSegment',              [MailingController::class, 'addSegment']            )->name(MailingController::ROUTE_ADD_SEGMENT);
 Route::get('/changeMailingStatus/{id}', [MailingController::class, 'changeMailingStatus']   )->name(MailingController::ROUTE_CHANGE_MAILING_STATUS);

@@ -23,5 +23,6 @@ Route::get('/addClients',       [ClientController::class, 'addClients']         
 Route::get('/addClientsXlsCvs', [ClientController::class, 'addClientsXlsCvs']   )->name(ClientController::ROUTE_ADD_CLIENTS_XLS_CVS);
 Route::get('/mailing',          [MailingController::class, 'mailing']           )->name(MailingController::ROUTE_MAILING);
 Route::get('/addMailing',       [MailingController::class, 'addMailing']        )->name(MailingController::ROUTE_ADD_MAILING);
+Route::get('/addSegment',       [MailingController::class, 'addSegment']        )->name(MailingController::ROUTE_ADD_SEGMENT);
 Route::get('/auth',             [RegisterController::class, 'auth']             )->name(RegisterController::ROUTE_AUTH);
 Route::get('/register',         [RegisterController::class, 'register']         )->name(RegisterController::ROUTE_REGISTER);

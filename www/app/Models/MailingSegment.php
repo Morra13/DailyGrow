@@ -7,25 +7,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Mailing
+ * Class MailingSegment
  * @package App\Models
  *
  * @property int id
  * @property Carbon created_at
  * @property Carbon updated_at
  * @property string name
- * @property string text
- * @property object client_id
- * @property string status works|stopped|finished
- * @property string start_mailing now|automatic|regularly
- * @property string when daily|now
- * @property int hour
- * @property int minute
- * @property int segment_id
- * @property int sent
- * @property int delivered
+ * @property int days
  */
-class Mailing extends Model
+class MailingSegment extends Model
 {
     use HasFactory;
 
@@ -34,7 +25,7 @@ class Mailing extends Model
      *
      * @var string
      */
-    const TABLE  = 'mailings';
+    const TABLE  = 'mailing_segments';
 
     /**
      * The table associated with the model.

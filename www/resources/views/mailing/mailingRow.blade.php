@@ -1,6 +1,6 @@
 <tr>
     <td class="clients__table">{{ $mailing->name }}</td>
-    <td class="clients__table">{{ $mailing->segment }}</td>
+    <td class="clients__table">{{ $mailing->segment_name }}</td>
     <td class="clients__table">
         {{ ($mailing->status == 'works') ? 'работает' : 'остановлен' }}
     </td>

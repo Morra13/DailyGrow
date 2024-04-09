@@ -5,6 +5,7 @@
         <div class="mailing__wrapper flex">
             <a href="{{ route(\App\Http\Controllers\MailingController::ROUTE_MAILING) }}" class="mailing__title">Рассылки</a>
             <a href="{{ route(\App\Http\Controllers\MailingController::ROUTE_ADD_MAILING) }}" class="mailing__title">Создать рассылку</a>
+            <a href="{{ route(\App\Http\Controllers\MailingController::ROUTE_ADD_SEGMENT) }}" class="mailing__title">Создать сегмент</a>
         </div>
         <form class="mailing__form flex" method="post" action="{{ route(\App\Http\Controllers\Api\MailingController::ROUTE_ADD_MAILING) }}">
             @method('post')
@@ -20,7 +21,7 @@
             <span class="recipients">Рассылку получат</span>
             <span class="recipients__number-of">250 из 250</span>
             <label for="client_id" class="checkbox__label recipients__label">
-                <input type="checkbox" name="client_id" id="client_id" class="checkbox input-reset" value="all">
+                <input type="checkbox" name="client_id" id="client_id" class="checkbox input-reset" value="all" checked>
                 <span class="checkbox__text">
                     Все клиенты
                 </span>
@@ -35,7 +36,7 @@
                         </span>
                     </label>
                     <label for="sendAuto" class="checkbox__label send__label">
-                        <input type="radio" name="start_mailing" id="sendAuto" class="checkbox input-reset" value="automatic">
+                        <input type="radio" name="start_mailing" id="sendAuto" class="checkbox input-reset" value="automatic" disabled>
                         <span class="checkbox__text">
                             Автоматически
                         </span>
@@ -49,23 +50,25 @@
                 </div>
                 <div class="mailing__right flex">
                     <div class="wrapper">
-                        <select name="when" class="select input-reset">
+                        <select name="when" class="select input-reset" disabled>
                             <option value="now">Сейчас</option>
                         </select>
                         <span class="select__separator">после</span>
-                        <select name="segment" class="select input-reset">
+                        <select name="segment" class="select input-reset" disabled>
                             <option value="segment">попадания в сегмент</option>
                         </select>
                         <button type="button" class="select__button btn-reset">+</button>
                     </div>
                     <div class="wrapper">
-                        <select name="how_often" class="select input-reset">
+                        <select name="when" class="select input-reset">
                             <option value="daily">ежедневно</option>
                         </select>
                         <span class="select__separator">в</span>
                         <input type="time" name="time" id="time" value="10:30" class="select input-reset">
-                        <select name="type" class="select input-reset">
-                            <option value="birthday">за 7 дней до дня рождения</option>
+                        <select name="segment_id" class="select input-reset">
+                            @foreach($segments as $segment)
+                                <option value="{{ $segment->id }}">{{ $segment->name }}</option>
+                            @endforeach
                         </select>
                         <button type="button" class="select__button btn-reset">+</button>
                     </div>

@@ -5,12 +5,16 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Client;
 use App\Models\Mailing;
+use App\Models\MailingSegment;
 use Illuminate\Http\Request;
 
 class MailingController extends Controller
 {
     /** @var string  */
     const ROUTE_ADD_MAILING = 'api.addMailing';
+
+    /** @var string  */
+    const ROUTE_ADD_SEGMENT = 'api.addSegment';
 
     /** @var string  */
     const ROUTE_CHANGE_MAILING_STATUS = 'api.changeMailingStatus';
@@ -38,18 +42,20 @@ class MailingController extends Controller
         $obMailing->text            = $request->get('text');
         $obMailing->client_id       = $jsonClientId;
         $obMailing->start_mailing   = $request->get('start_mailing');
-        $obMailing->when            = $request->get('when');
-        $obMailing->how_often       = $request->get('how_often');
-        $obMailing->hour            = substr($request->get('time'), 0, 2);
-        $obMailing->minute          = substr($request->get('time'), 3, 2);
-        $obMailing->type            = $request->get('type');
+        if ($request->get('start_mailing') != 'now') {
+            $obMailing->when            = $request->get('when');
+            $obMailing->hour            = substr($request->get('time'), 0, 2);
+            $obMailing->minute          = substr($request->get('time'), 3, 2);
+            $obMailing->segment_id      = $request->get('segment_id');
+        }
+
         $obMailing->save();
 
         return redirect()->route(\App\Http\Controllers\MailingController::ROUTE_MAILING);
     }
 
     /**
-     * Update mailing status
+     * Change mailing status
      *
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
@@ -68,6 +74,22 @@ class MailingController extends Controller
         }
 
         $obMailing->update();
+
+        return redirect()->route(\App\Http\Controllers\MailingController::ROUTE_MAILING);
+    }
+
+    /**
+     * Add segment
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function addSegment(Request $request) {
+        $obSegment = new MailingSegment();
+
+        $obSegment->name = $request->get('name');
+        $obSegment->days = $request->get('days');
+        $obSegment->save();
 
         return redirect()->route(\App\Http\Controllers\MailingController::ROUTE_MAILING);
     }

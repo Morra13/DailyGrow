@@ -21,12 +21,10 @@ class CreateMailingsTable extends Migration
             $table->json('client_id');
             $table->enum('status', ['works', 'stopped', 'finished'])->default('works');
             $table->enum('start_mailing', ['now', 'automatic', 'regularly']);
-            $table->enum('when', ['now']);
-            $table->enum('how_often', ['daily']);
-            $table->tinyInteger('hour');
-            $table->tinyInteger('minute');
-            $table->enum('type', ['birthday']);
-            $table->enum('segment', ['segment']);
+            $table->enum('when', ['daily', 'now']);
+            $table->tinyInteger('hour')->nullable();
+            $table->tinyInteger('minute')->nullable();
+            $table->integer('segment_id')->nullable();
             $table->integer('sent')->nullable();
             $table->integer('delivered')->nullable();
         });

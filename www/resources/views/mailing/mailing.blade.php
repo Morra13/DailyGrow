@@ -5,6 +5,7 @@
         <div class="mailing__wrapper flex">
             <a href="{{ route(\App\Http\Controllers\MailingController::ROUTE_MAILING) }}" class="mailing__title">Рассылки</a>
             <a href="{{ route(\App\Http\Controllers\MailingController::ROUTE_ADD_MAILING) }}" class="mailing__title">Создать рассылку</a>
+            <a href="{{ route(\App\Http\Controllers\MailingController::ROUTE_ADD_SEGMENT) }}" class="mailing__title">Создать сегмент</a>
         </div>
         <table class="table">
             <tr>
