@@ -88,6 +88,7 @@ a {
     --color-green: #55b955;
     --color-light-blue: #339af0;
     --color-blue: #1975FF;
+    --color-red: #ff0000;
     --color-black: #000;
     --border-radius-6: 6px;
     --border-radius-8: 8px;
@@ -532,6 +533,10 @@ a {
     padding-left: 35px;
 }
 
+.mailing__wrapper {
+    gap: 15px;
+}
+
 .mailing__title {
     margin: 0 0 24px 0;
     font-size: 14px;
@@ -544,6 +549,28 @@ a {
 
 .mailing__form {
     flex-direction: column;
+}
+
+.mailing__link {
+    display: flex;
+    height: 20px;
+    width: 100px;
+    border: none;
+    border-radius: var(--border-radius-8);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 10px;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+}
+
+.mailing__link_start {
+    background-color: var(--color-green);
+}
+
+.mailing__link_stop {
+    background-color: var(--color-red);
 }
 
 .mailing__name {
@@ -802,6 +829,8 @@ a {
     font-weight: 500;
     line-height: 17px;
     text-align: center;
+    align-items: center;
+    justify-content: center;
     color: var(--color-gray-7);
 }
 
