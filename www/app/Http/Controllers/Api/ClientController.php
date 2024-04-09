@@ -34,7 +34,7 @@ class ClientController extends Controller
         $obClients->birthday = $request->get('birthday');
         $obClients->save();
 
-        return redirect()->route(\App\Http\Controllers\ClientController::ROUTE_ADD_CLIENTS);
+        return redirect()->route(\App\Http\Controllers\ClientController::ROUTE_CLIENTS);
     }
 
     /**
@@ -47,7 +47,7 @@ class ClientController extends Controller
     {
         Excel::import(new ClientImport, $request->file('file'), 'filename');
 
-        return redirect()->route(\App\Http\Controllers\ClientController::ROUTE_ADD_CLIENTS_XLS_CVS);
+        return redirect()->route(\App\Http\Controllers\ClientController::ROUTE_CLIENTS);
     }
 
     /**
