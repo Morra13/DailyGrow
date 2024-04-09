@@ -42,6 +42,7 @@
                 <th class="clients__table clients__table_title">Телефон</th>
                 <th class="clients__table clients__table_title">Email</th>
                 <th class="clients__table clients__table_title">День рождения</th>
+                <th class="clients__table clients__table_title"></th>
             </tr>
             @foreach($clients as $client)
                 @include('clients.clientsRow', [

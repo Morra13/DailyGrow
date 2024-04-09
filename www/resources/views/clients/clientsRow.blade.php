@@ -19,4 +19,7 @@
     <td class="clients__table">{{ $client->phone }}</td>
     <td class="clients__table">{{ $client->email }}</td>
     <td class="clients__table">{{ $client->birthday }}</td>
+    <td class="clients__table">
+        <a href="{{ route(\App\Http\Controllers\Api\ClientController::ROUTE_DELETE_CLIENT, $client->id) }}" class="btn-reset">Удалить</a>
+    </td>
 </tr>

@@ -16,6 +16,9 @@ class ClientController extends Controller
     /** @var string  */
     const ROUTE_ADD_CLIENT_XLS_CVS = 'api.addClientXlsCvs';
 
+    /** @var string  */
+    const ROUTE_DELETE_CLIENT = 'api.deleteClient';
+
     /**
      * Add clients
      *
@@ -45,5 +48,21 @@ class ClientController extends Controller
         Excel::import(new ClientImport, $request->file('file'), 'filename');
 
         return redirect()->route(\App\Http\Controllers\ClientController::ROUTE_ADD_CLIENTS_XLS_CVS);
+    }
+
+    /**
+     * Delete client by id
+     *
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function deleteClient($id)
+    {
+        (new Client())
+            ->where('id', $id)
+            ->delete()
+        ;
+
+        return redirect()->route(\App\Http\Controllers\ClientController::ROUTE_CLIENTS);
     }
 }
