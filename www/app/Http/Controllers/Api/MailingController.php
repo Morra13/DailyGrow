@@ -47,6 +47,8 @@ class MailingController extends Controller
             $obMailing->hour            = substr($request->get('time'), 0, 2);
             $obMailing->minute          = substr($request->get('time'), 3, 2);
             $obMailing->segment_id      = $request->get('segment_id');
+        } else {
+            $obMailing->when            = 'now';
         }
 
         $obMailing->save();

@@ -17,9 +17,9 @@ class AnalyticsController extends Controller
      */
     public function analytics()
     {
-        $obMailing = (new Mailing())
-            ->all()
-        ;
+        $arSent = [];
+        $arDelivered = [];
+        $obMailing = (new Mailing())->all();
 
         foreach ($obMailing as $value) {
             $arSent[] = $value->sent;
