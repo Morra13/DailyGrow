@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => __('Авторизация')])
 
 @section('content')
-    <form class="register" method="POST" autocomplete="off" enctype="multipart/form-data" action="{{ route(\App\Http\Controllers\Api\Auth\RegisterController::ROUTE_AUTH) }}">
+    <form class="register" method="POST" autocomplete="off" enctype="multipart/form-data" action="{{ route(\App\Http\Controllers\Auth\AuthController::ROUTE_AUTH) }}">
         @method('post')
         @csrf
         <h2 class="register__title">
@@ -19,7 +19,7 @@
             <button class="register__button btn-reset">
                 Авторизация
             </button>
-            <a class="register__auth btn-reset flex" href="{{ route(\App\Http\Controllers\Auth\RegisterController::ROUTE_REGISTER) }}">
+            <a class="register__auth btn-reset flex" href="{{ route(\App\Http\Controllers\PublicController::ROUTE_REGISTER) }}">
                 Регистрация
             </a>
         </div>

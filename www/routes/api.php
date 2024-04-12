@@ -21,8 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/auth',                    [RegisterController::class, 'auth']                 )->name(RegisterController::ROUTE_AUTH);
-Route::post('/register',                [RegisterController::class, 'register']             )->name(RegisterController::ROUTE_REGISTER);
 Route::post('/addClient',               [ClientController::class, 'addClient']              )->name(ClientController::ROUTE_ADD_CLIENT);
 Route::post('/addClientXlsCvs',         [ClientController::class, 'addClientXlsCvs']        )->name(ClientController::ROUTE_ADD_CLIENT_XLS_CVS);
 Route::get('/deleteClient/{id}',        [ClientController::class, 'deleteClient']           )->name(ClientController::ROUTE_DELETE_CLIENT);
