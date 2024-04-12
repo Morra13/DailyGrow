@@ -27,3 +27,4 @@ Route::get('/deleteClient/{id}',        [ClientController::class, 'deleteClient'
 Route::post('/addMailing',              [MailingController::class, 'addMailing']            )->name(MailingController::ROUTE_ADD_MAILING);
 Route::post('/addSegment',              [MailingController::class, 'addSegment']            )->name(MailingController::ROUTE_ADD_SEGMENT);
 Route::get('/changeMailingStatus/{id}', [MailingController::class, 'changeMailingStatus']   )->name(MailingController::ROUTE_CHANGE_MAILING_STATUS);
+Route::get('/createSms',                [SmsController::class, 'createSms']                 )->name(SmsController::ROUTE_CREATE_SMS);

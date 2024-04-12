@@ -53,6 +53,8 @@ class MailingController extends Controller
 
         $obMailing->save();
 
+        (new SmsController())->createSms($obMailing);
+
         return redirect()->route(\App\Http\Controllers\MailingController::ROUTE_MAILING);
     }
 
