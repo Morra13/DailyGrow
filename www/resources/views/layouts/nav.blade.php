@@ -1,7 +1,7 @@
 <nav class="nav">
     <div class="nav__top">
         <div class="logo">
-            <a href="{{ route(\App\Http\Controllers\AnalyticsController::ROUTE_ANALYTICS) }}" class="logo__link">
+            <a href="{{ route(\App\Http\Controllers\PublicController::ROUTE_MAIN) }}" class="logo__link">
                 <img class="logo__img" src="{{asset('storage')}}/img/logo.png" alt="Logo Daily Grow">
             </a>
         </div>
