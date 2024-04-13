@@ -7,11 +7,18 @@ use App\Models\Client;
 use App\Models\Mailing;
 use App\Models\MailingSegment;
 use App\Models\Sms;
+use App\Services\Sender;
 
 class SmsController extends Controller
 {
     /** @var string  */
     const ROUTE_CREATE_SMS = 'api.createSms';
+
+    /** @var string  */
+    const ROUTE_SEND_SMS = 'api.sendSms';
+
+    /** @var string  */
+    const ROUTE_UPDATE_SMS_STATUS = 'api.updateSmsStatus';
 
     /**
      * Create sms
@@ -53,6 +60,39 @@ class SmsController extends Controller
                 $obSms->client_id = $clientId;
                 $obSms->status_send = 'sent';
                 $obSms->save();
+            }
+        }
+    }
+
+    /**
+     * Send sms
+     *
+     * @param $smsId
+     * @param $phone
+     * @param $text
+     * @return void
+     */
+    public function sendSms($smsId, $phone, $text) {
+        include_once (realpath(app_path('Services/Sender/smscApi.php')));
+        Sender\send_sms($phone, $text, '0','0', $smsId);
+    }
+
+    /**
+     * Update sms status
+     *
+     * @return void
+     */
+    public function updateSmsStatus ()
+    {
+        include_once (realpath(app_path('Services/Sender/smscApi.php')));
+        $obSms = (new Sms())->where('status_send', 'sent')->get();
+        foreach ($obSms as $sms) {
+            $phone = (new Client())->where('id', $sms->client_id)->first()->phone;
+            list($status, $time) = Sender\get_status($sms->id, $phone);
+            if ($status == "1") {
+                $sms->status_send = 'delivered';
+                $sms->date_delivery = date('Y-m-d H:i', $time);
+                $sms->update();
             }
         }
     }

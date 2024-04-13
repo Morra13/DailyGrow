@@ -2,9 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\ClientController;
 use App\Http\Controllers\Api\MailingController;
+use App\Http\Controllers\Api\SmsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +28,5 @@ Route::post('/addMailing',              [MailingController::class, 'addMailing']
 Route::post('/addSegment',              [MailingController::class, 'addSegment']            )->name(MailingController::ROUTE_ADD_SEGMENT);
 Route::get('/changeMailingStatus/{id}', [MailingController::class, 'changeMailingStatus']   )->name(MailingController::ROUTE_CHANGE_MAILING_STATUS);
 Route::get('/createSms',                [SmsController::class, 'createSms']                 )->name(SmsController::ROUTE_CREATE_SMS);
+Route::get('/sendSms',                  [SmsController::class, 'sendSms']                   )->name(SmsController::ROUTE_SEND_SMS);
+Route::get('/updateSmsStatus',          [SmsController::class, 'updateSmsStatus']           )->name(SmsController::ROUTE_UPDATE_SMS_STATUS);
