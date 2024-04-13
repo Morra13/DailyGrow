@@ -28,6 +28,11 @@
             </div>
         @endif
     </td>
-    <td class="table__list table__list_opacity"><div class="table__list_green"><span class="list__send_small">{{ round((($mailing->delivered) / ($mailing->sent ?? 1)) * 100) . '%' }}</span><span class="list__send_big">{{ $mailing->sent ?? 0 }}</span></div></td>
+    <td class="table__list table__list_opacity">
+        <div class="table__list_green">
+            <span class="list__send_small">{{ round((($mailing->delivered) / ($mailing->sent == 0 ? 1 : $mailing->sent)) * 100) . '%' }}</span>
+            <span class="list__send_big">{{ $mailing->sent ?? 0 }}</span>
+        </div>
+    </td>
     <td class="table__list table__list_opacity"><span class="list__delivered">{{ $mailing->delivered ?? 0 }}</span></td>
 </tr>

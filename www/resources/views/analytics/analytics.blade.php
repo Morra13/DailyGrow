@@ -3,13 +3,19 @@
 @section('content')
     <div class="analytics">
         <div class="analytics__date flex">
-            <button class="btn-reset btn__date">1 авг. - 30 авг. 2023</button>
+            <form action="{{ route(\App\Http\Controllers\AnalyticsController::ROUTE_ANALYTICS) }}" method="get" class="analytics__date flex">
+                @method('get')
+                @csrf
+                <input type="date" class="btn-reset btn__date" name="dateFrom" id="dateFrom" required>
+                <input type="date" class="btn-reset btn__date" name="dateTo" id="dateTo" value="{{date('Y-m-d')}}" required>
+                <button class="btn-reset btn__period btn__check">Посмотреть</button>
+            </form>
             <div class="analytics__period flex">
-                <button class="btn-reset btn__period">7 дней</button>
-                <button class="btn-reset btn__period">30 дней</button>
-                <button class="btn-reset btn__period">месяц</button>
-                <button class="btn-reset btn__period">квартал</button>
-                <button class="btn-reset btn__period">год</button>
+                <a href="{{ route(\App\Http\Controllers\AnalyticsController::ROUTE_ANALYTICS, 'period=-1 week') }}" class="btn__period flex">7 дней</a>
+                <a href="{{ route(\App\Http\Controllers\AnalyticsController::ROUTE_ANALYTICS, 'period=-30 day') }}" class="btn__period flex">30 дней</a>
+                <a href="{{ route(\App\Http\Controllers\AnalyticsController::ROUTE_ANALYTICS, 'period=-1 month') }}" class="btn__period flex">месяц</a>
+                <a href="{{ route(\App\Http\Controllers\AnalyticsController::ROUTE_ANALYTICS, 'period=-3 month') }}" class="btn__period flex">квартал</a>
+                <a href="{{ route(\App\Http\Controllers\AnalyticsController::ROUTE_ANALYTICS, 'period=-1 year') }}" class="btn__period flex">год</a>
             </div>
         </div>
         <table class="table">

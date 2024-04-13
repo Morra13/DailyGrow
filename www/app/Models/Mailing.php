@@ -22,8 +22,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int hour
  * @property int minute
  * @property int segment_id
- * @property int sent
- * @property int delivered
  */
 class Mailing extends Model
 {
@@ -42,4 +40,36 @@ class Mailing extends Model
      * @var string
      */
     protected $table = self::TABLE;
+
+    /**
+     * Get sms sent statistic
+     *
+     * @param $dateFrom
+     * @param $dateTo
+     * @return mixed
+     */
+    public function getStatisticsByDate($dateFrom = null, $dateTo = null)
+    {
+        $arMailing = (new Mailing())->get();
+        foreach ($arMailing as $mailing) {
+            $obSms = new Sms();
+            $obSms->where('mailing_id', $mailing->id)->get()->all();
+            $mailing->sent = $obSms
+                ->where('mailing_id', $mailing->id)
+                ->where('status_send', '!=', 'waiting')
+                ->where('date_send', ">=", $dateFrom ?? $obSms->get()->min('date_send'))
+                ->where('date_send', "<=", $dateTo ?? $obSms->get()->max('date_send'))
+                ->count()
+            ;
+            $mailing->delivered = $obSms
+                ->where('mailing_id', $mailing->id)
+                ->where('status_send', 'delivered')
+                ->where('date_send', ">=", $dateFrom ?? $obSms->get()->min('date_delivery'))
+                ->where('date_send', "<=", $dateTo ?? $obSms->get()->max('date_delivery'))
+                ->count()
+            ;
+        }
+
+        return $arMailing;
+    }
 }

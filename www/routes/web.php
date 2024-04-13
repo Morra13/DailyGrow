@@ -26,7 +26,7 @@ Route::post('/register',        [AuthController::class, 'register']             
 Route::group(
     ['middleware' => 'auth'],
     function () {
-        Route::get('/',                 [AnalyticsController::class, 'analytics']       )->name(AnalyticsController::ROUTE_ANALYTICS);
+        Route::get('/?{period}',        [AnalyticsController::class, 'analytics']       )->name(AnalyticsController::ROUTE_ANALYTICS);
         Route::get('/clients',          [ClientController::class, 'clients']            )->name(ClientController::ROUTE_CLIENTS);
         Route::get('/addClients',       [ClientController::class, 'addClients']         )->name(ClientController::ROUTE_ADD_CLIENTS);
         Route::get('/addClientsXlsCvs', [ClientController::class, 'addClientsXlsCvs']   )->name(ClientController::ROUTE_ADD_CLIENTS_XLS_CVS);

@@ -15,19 +15,23 @@ class AnalyticsController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
      */
-    public function analytics()
+    public function analytics(Request $request)
     {
-        $arSent = [];
-        $arDelivered = [];
-        $obMailing = (new Mailing())->all();
+        $dateFrom = $request->dateFrom;
+        $dateTo = $request->dateTo;
+        if ($request->period) {
+            $dateFrom = date('Y-m-d', strtotime($request->period));
+            $dateTo = date('Y-m-d');
+        }
 
-        foreach ($obMailing as $value) {
+        $arMailing = (new Mailing())->getStatisticsByDate($dateFrom, $dateTo);
+        foreach ($arMailing as $value) {
             $arSent[] = $value->sent;
             $arDelivered[] = $value->delivered;
         }
 
         return view('analytics.analytics', [
-                'mailings'  => $obMailing,
+                'mailings'  => $arMailing,
                 'sent'      => array_sum($arSent),
                 'delivered' => array_sum($arDelivered),
             ]

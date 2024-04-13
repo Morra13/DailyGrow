@@ -25,8 +25,6 @@ class CreateMailingsTable extends Migration
             $table->tinyInteger('hour')->nullable();
             $table->tinyInteger('minute')->nullable();
             $table->integer('segment_id')->nullable();
-            $table->integer('sent')->nullable();
-            $table->integer('delivered')->nullable();
         });
     }
 

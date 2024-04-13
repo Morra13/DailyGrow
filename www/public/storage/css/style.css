@@ -310,7 +310,14 @@ a {
     gap: 15px;
 }
 
+.btn__check {
+    background-color: var(--color-green);
+    margin-right: 20px;
+}
+
 .btn__period {
+    align-items: center;
+    justify-content: center;
     width: 85px;
     height: 30px;
     gap: 15px;
