@@ -17,6 +17,8 @@ class AnalyticsController extends Controller
      */
     public function analytics(Request $request)
     {
+        $arSent = [];
+        $arDelivered = [];
         $dateFrom = $request->dateFrom;
         $dateTo = $request->dateTo;
         if ($request->period) {
