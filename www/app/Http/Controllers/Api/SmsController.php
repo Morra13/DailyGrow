@@ -60,6 +60,7 @@ class SmsController extends Controller
                 $obSms->client_id = $clientId;
                 $obSms->status_send = 'sent';
                 $obSms->save();
+                $this->sendSms($obSms->id, $obClient->phone ,$obMailing->text);
             }
         }
     }
